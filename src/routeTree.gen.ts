@@ -10,33 +10,53 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CaseLibraryRouteImport } from './routes/case-library'
+import { Route as EvaluateRouteImport } from './routes/evaluate'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CaseLibraryRoute = CaseLibraryRouteImport.update({
+  id: '/case-library',
+  path: '/case-library',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EvaluateRoute = EvaluateRouteImport.update({
+  id: '/evaluate',
+  path: '/evaluate',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/case-library': typeof CaseLibraryRoute
+  '/evaluate': typeof EvaluateRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/case-library': typeof CaseLibraryRoute
+  '/evaluate': typeof EvaluateRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/case-library': typeof CaseLibraryRoute
+  '/evaluate': typeof EvaluateRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/case-library' | '/evaluate'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/case-library' | '/evaluate'
+  id: '__root__' | '/' | '/case-library' | '/evaluate'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CaseLibraryRoute: typeof CaseLibraryRoute
+  EvaluateRoute: typeof EvaluateRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +68,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/case-library': {
+      id: '/case-library'
+      path: '/case-library'
+      fullPath: '/case-library'
+      preLoaderRoute: typeof CaseLibraryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/evaluate': {
+      id: '/evaluate'
+      path: '/evaluate'
+      fullPath: '/evaluate'
+      preLoaderRoute: typeof EvaluateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CaseLibraryRoute: CaseLibraryRoute,
+  EvaluateRoute: EvaluateRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

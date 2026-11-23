@@ -2,6 +2,8 @@ import { createFileRoute } from '@tanstack/react-router';
 import { useState } from 'react';
 import { ArrowDownLeft, ArrowRight, ArrowRightLeft, BarChart3, Building2, Check, CheckCheck, ChevronRight, Clock3, Info, Layers3, LockKeyhole, RotateCcw, ShieldCheck, Timer, TriangleAlert, UserRound } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { TestingGuide } from '@/components/testing-guide';
+import { AppNavigation } from '@/components/app-navigation';
 import { initialEvents, resolveDecision, type Decision, type Permission } from '@/lib/settlement';
 
 export const Route = createFileRoute('/')({
@@ -39,6 +41,7 @@ function Index() {
         <div className="brand"><span className="brand-mark"><ShieldCheck size={35} strokeWidth={1.7} /></span>AgentGate<span className="header-context">Agent governance console</span></div>
         <div className="flex items-center gap-3"><div className="analyst-label text-right"><div className="text-xs font-medium">Operations analyst</div><div className="mt-1 text-[10px] text-muted-foreground">Settlement operations</div></div><span className="analyst-avatar"><UserRound size={16} /></span></div>
       </header>
+      <AppNavigation active="demo" />
       <main className="console">
         <div className="flex items-center gap-2 text-[11px] text-muted-foreground"><span>Settlement operations</span><ChevronRight size={12} /><span>Exceptions</span><ChevronRight size={12} /><span className="font-mono text-foreground">EXC-2047</span></div>
         <section aria-labelledby="case-heading">
@@ -76,6 +79,7 @@ function Index() {
             <Button variant="ghost" size="sm" className="mt-4 w-full gap-2 text-muted-foreground" onClick={() => setDecision(null)}><RotateCcw size={13} />Reset demo</Button>
           </section>
         </div>
+        <TestingGuide />
         <footer className="console-footer"><span className="flex items-center gap-1.5"><ShieldCheck size={12} />AgentGate <span className="mx-1">·</span> Governed autonomy, by design.</span><span>Concept demo <span className="mx-1">/</span> Fictional case EXC-2047</span></footer>
       </main>
     </div>

@@ -30,5 +30,7 @@ use the editor.
 <!-- LOVABLE:END -->
 
 ## Project architecture
-- Keep this concept demo client-side with explicit decision outcomes in a pure domain module, so no real trades or external operations occur and governance rules can be tested independently.
+- Keep the guided demo client-side and unchanged; live case proposals use a bounded server function on Lovable AI, while a pure TypeScript policy module alone assigns permissions, so model output cannot grant authority.
+- Prototype execution records go through the deterministic execution gate: RED is human-only and blocked closure remains blocked even after approval; no trades, transfers, or emails are performed.
+- Keep the eight fictional cases and golden grading in a client-safe domain module; evaluations run sequentially and pause remaining requests on credit, policy, auth, or rate-limit failures to avoid automatic inference replay.
 - Define dashboard styling and semantic status colors in the global design system; use the shared Button for decisions and reset to keep interactions consistent.
