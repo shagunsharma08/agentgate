@@ -1,0 +1,11 @@
+Step,Permission,Condition
+Find the fail,Green,Agent acts alone
+Classify the fail type,Green,Agent acts alone
+Research the cause,Green,Access only the data needed
+Email the counterparty,Amber,Agent drafts and human approves
+Correct an instruction,Green,Matches standing instructions on file
+Correct an instruction,Amber,Agent would have to infer
+Move or borrow securities or cash,Red,Human only
+Monitor until settled,Green,Agent acts alone
+Close and document,Green,Only after settlement is confirmed
+Close and document,Red,Closure blocked while any obligation remains open
