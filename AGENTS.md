@@ -34,3 +34,4 @@ use the editor.
 - Prototype execution records go through the deterministic execution gate: RED is human-only and blocked closure remains blocked even after approval; no trades, transfers, or emails are performed.
 - Keep the eight fictional cases and golden grading in a client-safe domain module; evaluations run sequentially and pause remaining requests on credit, policy, auth, or rate-limit failures to avoid automatic inference replay.
 - Define dashboard styling and semantic status colors in the global design system; use the shared Button for decisions and reset to keep interactions consistent.
+- Intentionally omit global auth attachment for the public synthetic-only AI RPC, so published analysis does not depend on browser database configuration; future protected RPCs must attach bearer credentials and retain server-side authentication checks.
