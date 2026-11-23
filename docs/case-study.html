@@ -92,7 +92,8 @@ footer{background:var(--charcoal);padding:28px 0;border-top:1px solid rgba(255,2
     <tr><th scope="row">Correct an instruction</th><td><span class="permission green">Green</span> If it matches standing instructions on file.<br><span class="permission amber">Amber</span> If the agent has to infer.</td></tr>
     <tr><th scope="row">Move or borrow securities or cash</th><td><span class="permission red">Red</span> Human only.</td></tr>
     <tr><th scope="row">Monitor until settled</th><td><span class="permission green">Green</span> Agent acts alone.</td></tr>
-    <tr><th scope="row">Close and document</th><td><span class="permission green">Green</span> Only after settlement is confirmed.<br><span class="permission red">Red</span> Closure blocked if anything remains open.</td></tr>
+    <tr><th scope="row">Close and document: settled</th><td><span class="permission green">Green</span> Settlement confirmed and zero shares remain open.</td></tr>
+    <tr><th scope="row">Close and document: unresolved</th><td><span class="permission red">Red</span> Closure blocked if anything remains open or settlement is unconfirmed.</td></tr>
   </tbody></table></div>
   <div class="callout"><p><strong>Key design idea: conditional permissions.</strong> The same action gets a different permission level depending on the evidence the agent has. Matching a standing instruction is different from guessing what the instruction should be.</p></div>
 </section>
